@@ -15,6 +15,10 @@ import java.util.Random;
 
 public class SemesterProject extends javax.swing.JFrame {
 
+    private String word;
+    private int wordLength;
+    private int lettersRemaining;
+    private int score;
     /**
      * Creates new form SemesterProject
      */
@@ -82,8 +86,18 @@ public class SemesterProject extends javax.swing.JFrame {
         xButton = new javax.swing.JButton();
         yButton = new javax.swing.JButton();
         zButton = new javax.swing.JButton();
-        buttonTestLabel = new javax.swing.JLabel();
-        wordTestLabel = new javax.swing.JLabel();
+        gameScoreLabel = new javax.swing.JLabel();
+        letter1Label = new javax.swing.JLabel();
+        letter2Label = new javax.swing.JLabel();
+        letter3Label = new javax.swing.JLabel();
+        letter4Label = new javax.swing.JLabel();
+        letter5Label = new javax.swing.JLabel();
+        letter6Label = new javax.swing.JLabel();
+        letter7Label = new javax.swing.JLabel();
+        letter8Label = new javax.swing.JLabel();
+        answerLabel = new javax.swing.JLabel();
+        niceLabel = new javax.swing.JLabel();
+        tryAgainLabel = new javax.swing.JLabel();
         scorePanel = new javax.swing.JPanel();
         scoreLabel = new javax.swing.JLabel();
         scoreBackButton = new javax.swing.JButton();
@@ -93,6 +107,7 @@ public class SemesterProject extends javax.swing.JFrame {
         gameOverPanel = new javax.swing.JPanel();
         gameOverLabel = new javax.swing.JLabel();
         gameOverEndButton = new javax.swing.JButton();
+        finalScoreLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -125,14 +140,14 @@ public class SemesterProject extends javax.swing.JFrame {
                     .addGroup(startPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(projectLabel)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         startPanelLayout.setVerticalGroup(
             startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(startPanelLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(projectLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(groupLabel)
                 .addGap(63, 63, 63))
         );
@@ -172,7 +187,7 @@ public class SemesterProject extends javax.swing.JFrame {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGap(259, 259, 259)
                 .addComponent(menuLabel)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +206,7 @@ public class SemesterProject extends javax.swing.JFrame {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(menuLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(gameButton)
                 .addGap(18, 18, 18)
                 .addComponent(scoreButton)
@@ -429,79 +444,81 @@ public class SemesterProject extends javax.swing.JFrame {
             }
         });
 
-        buttonTestLabel.setText("jLabel1");
+        gameScoreLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        gameScoreLabel.setText("Score: 100");
 
-        wordTestLabel.setText("jLabel2");
+        letter1Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter1Label.setText(" ___");
+
+        letter2Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter2Label.setText("___");
+
+        letter3Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter3Label.setText("___");
+
+        letter4Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter4Label.setText("___");
+
+        letter5Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter5Label.setText("___");
+
+        letter6Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter6Label.setText("___");
+
+        letter7Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter7Label.setText("___");
+
+        letter8Label.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        letter8Label.setText("___");
+
+        answerLabel.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        answerLabel.setText("ANSWER:");
+
+        niceLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        niceLabel.setForeground(new java.awt.Color(0, 204, 51));
+        niceLabel.setText("Nice!");
+
+        tryAgainLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        tryAgainLabel.setForeground(new java.awt.Color(255, 51, 51));
+        tryAgainLabel.setText("Try Again!");
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
         gamePanelLayout.setHorizontalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(gameBackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(gameSkipButton)
-                .addGap(41, 41, 41))
             .addGroup(gamePanelLayout.createSequentialGroup()
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(kButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(oButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(qButton)
+                        .addGap(21, 21, 21))
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(gameLabel))
-                    .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(buttonTestLabel))
-                    .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
+                        .addGap(77, 77, 77)
                         .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
-                                .addComponent(aButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(eButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(gButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(hButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(iButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
-                                .addComponent(jButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(kButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(oButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(qButton)
-                                .addGap(21, 21, 21))
                             .addGroup(gamePanelLayout.createSequentialGroup()
-                                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(wordTestLabel)
-                                    .addGroup(gamePanelLayout.createSequentialGroup()
-                                        .addComponent(rButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(sButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(uButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(vButton)))
+                                .addComponent(rButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(uButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(vButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(wButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -509,60 +526,131 @@ public class SemesterProject extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(yButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(zButton)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addComponent(zButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
+                                .addComponent(aButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(gamePanelLayout.createSequentialGroup()
+                                        .addComponent(answerLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(letter1Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter2Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter3Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter4Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter5Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter6Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter7Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(letter8Label))
+                                    .addGroup(gamePanelLayout.createSequentialGroup()
+                                        .addComponent(bButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(dButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(eButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(gButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(hButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(iButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addComponent(tryAgainLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addComponent(gameScoreLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addComponent(gameBackButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gameLabel)
+                        .addGap(132, 132, 132)
+                        .addComponent(gameSkipButton)
+                        .addGap(24, 24, 24))))
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(niceLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(gameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(buttonTestLabel)
-                .addGap(82, 82, 82)
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(aButton)
-                            .addComponent(bButton)
-                            .addComponent(cButton)
-                            .addComponent(dButton)
-                            .addComponent(eButton)
-                            .addComponent(fButton)
-                            .addComponent(gButton)
-                            .addComponent(hButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton)
-                            .addComponent(kButton)
-                            .addComponent(lButton)
-                            .addComponent(mButton)
-                            .addComponent(nButton)
-                            .addComponent(oButton)
-                            .addComponent(pButton)
-                            .addComponent(qButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rButton)
-                            .addComponent(sButton)
-                            .addComponent(tButton)
-                            .addComponent(uButton)
-                            .addComponent(vButton)
-                            .addComponent(wButton)
-                            .addComponent(xButton)
-                            .addComponent(yButton)
-                            .addComponent(zButton)))
-                    .addComponent(iButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(gameBackButton)
+                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gameLabel)
                             .addComponent(gameSkipButton))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
-                        .addComponent(wordTestLabel)
-                        .addGap(22, 22, 22))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(letter1Label)
+                            .addComponent(letter2Label)
+                            .addComponent(letter3Label)
+                            .addComponent(letter4Label)
+                            .addComponent(letter5Label)
+                            .addComponent(letter6Label)
+                            .addComponent(letter7Label)
+                            .addComponent(letter8Label)
+                            .addComponent(answerLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(gamePanelLayout.createSequentialGroup()
+                                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(aButton)
+                                    .addComponent(bButton)
+                                    .addComponent(cButton)
+                                    .addComponent(dButton)
+                                    .addComponent(eButton)
+                                    .addComponent(fButton)
+                                    .addComponent(gButton)
+                                    .addComponent(hButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton)
+                                    .addComponent(kButton)
+                                    .addComponent(lButton)
+                                    .addComponent(mButton)
+                                    .addComponent(nButton)
+                                    .addComponent(oButton)
+                                    .addComponent(pButton)
+                                    .addComponent(qButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rButton)
+                                    .addComponent(sButton)
+                                    .addComponent(tButton)
+                                    .addComponent(uButton)
+                                    .addComponent(vButton)
+                                    .addComponent(wButton)
+                                    .addComponent(xButton)
+                                    .addComponent(yButton)
+                                    .addComponent(zButton)))
+                            .addComponent(iButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addComponent(gameBackButton)
+                        .addGap(27, 27, 27)
+                        .addComponent(gameScoreLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(niceLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tryAgainLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         mainPanel.add(gamePanel, "gamePanel");
@@ -591,14 +679,14 @@ public class SemesterProject extends javax.swing.JFrame {
                     .addGroup(scorePanelLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(scoreBackButton)))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         scorePanelLayout.setVerticalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scorePanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(scoreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(scoreBackButton)
                 .addGap(33, 33, 33))
         );
@@ -629,14 +717,14 @@ public class SemesterProject extends javax.swing.JFrame {
                     .addGroup(creditsPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(creditsBackButton)))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         creditsPanelLayout.setVerticalGroup(
             creditsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creditsPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(creditsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(creditsBackButton)
                 .addGap(32, 32, 32))
         );
@@ -655,6 +743,9 @@ public class SemesterProject extends javax.swing.JFrame {
             }
         });
 
+        finalScoreLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        finalScoreLabel.setText("Score: 100");
+
         javax.swing.GroupLayout gameOverPanelLayout = new javax.swing.GroupLayout(gameOverPanel);
         gameOverPanel.setLayout(gameOverPanelLayout);
         gameOverPanelLayout.setHorizontalGroup(
@@ -668,13 +759,19 @@ public class SemesterProject extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(gameOverEndButton)))
                 .addContainerGap(196, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameOverPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(finalScoreLabel)
+                .addGap(245, 245, 245))
         );
         gameOverPanelLayout.setVerticalGroup(
             gameOverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameOverPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(gameOverLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(finalScoreLabel)
+                .addGap(122, 122, 122)
                 .addComponent(gameOverEndButton)
                 .addGap(34, 34, 34))
         );
@@ -698,15 +795,37 @@ public class SemesterProject extends javax.swing.JFrame {
 
     private void gameButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameButtonMousePressed
         // TODO add your handling code here:
-        String word;
-        
         mainPanel.removeAll();
         mainPanel.add(gamePanel);
         mainPanel.repaint();
         mainPanel.revalidate();
         
+        score = 100;
+        gameScoreLabel.setText("Score: " + score);
+        
         word = wordSelect();
-        wordTestLabel.setText("Word: " + word);
+        wordLength = word.length();
+        lettersRemaining = wordLength;
+        
+        letter1Label.setText("___");
+        letter2Label.setText("___");
+        letter3Label.setText("___");
+        letter4Label.setText("___");
+        letter5Label.setText("___");
+        letter6Label.setText("___");
+        letter7Label.setText("___");
+        letter8Label.setText("___");
+        letter6Label.setVisible(true);
+        letter7Label.setVisible(true);
+        letter8Label.setVisible(true);
+        if (wordLength == 5) {
+            letter6Label.setVisible(false);
+            letter7Label.setVisible(false);
+            letter8Label.setVisible(false);
+        }
+        
+        niceLabel.setVisible(false);
+        tryAgainLabel.setVisible(false);
         
         aButton.setEnabled(true);
         bButton.setEnabled(true);
@@ -774,11 +893,8 @@ public class SemesterProject extends javax.swing.JFrame {
 
     private void gameSkipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameSkipButtonMouseClicked
         // TODO add your handling code here:
-        mainPanel.removeAll();
-        mainPanel.add(gameOverPanel);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-        
+        score = 0;
+        gameOverDisplay();
     }//GEN-LAST:event_gameSkipButtonMouseClicked
 
     private void aButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aButtonMouseClicked
@@ -912,10 +1028,59 @@ public class SemesterProject extends javax.swing.JFrame {
     }//GEN-LAST:event_zButtonMouseClicked
 
     private void letterSelected(javax.swing.JButton button) {
+        boolean letterFound = false;
         if (button.isEnabled())
-            buttonTestLabel.setText("Letter Selected: " + button.getText());
+            for (int i = 0; i < word.length(); i++) {
+                String letter = String.valueOf(word.charAt(i));
+                if (letter.equalsIgnoreCase(button.getText())) {
+                    displayLetter(i, letter.toUpperCase());
+                    lettersRemaining--;
+                    letterFound = true;
+                }
+            }
+        if (!letterFound) {
+            score -= 10;
+            gameScoreLabel.setText("Score: " + score);
+            tryAgainLabel.setVisible(true);
+            niceLabel.setVisible(false);
+        }
+        if (score == 40)
+            gameOverDisplay();
+        if (lettersRemaining == 0)
+            gameOverDisplay();
         button.setEnabled(false);
     }
+    
+    private void displayLetter(int index, String letter) {
+        if (index == 0)
+            letter1Label.setText(" " + letter + " ");
+        if (index == 1)
+            letter2Label.setText(" " + letter + " ");
+        if (index == 2)
+            letter3Label.setText(" " + letter + " ");
+        if (index == 3)
+            letter4Label.setText(" " + letter + " ");
+        if (index == 4)
+            letter5Label.setText(" " + letter + " ");
+        if (index == 5)
+            letter6Label.setText(" " + letter + " ");
+        if (index == 6)
+            letter7Label.setText(" " + letter + " ");
+        if (index == 7)
+            letter8Label.setText(" " + letter + " ");
+        niceLabel.setVisible(true);
+        tryAgainLabel.setVisible(false);
+    }
+    
+    private void gameOverDisplay() {
+        mainPanel.removeAll();
+        mainPanel.add(gameOverPanel);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+        
+        finalScoreLabel.setText("Score: " + score);
+    }
+    
     private void returnMenu() {
         mainPanel.removeAll();
         mainPanel.add(menuPanel);
@@ -966,8 +1131,8 @@ public class SemesterProject extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aButton;
+    private javax.swing.JLabel answerLabel;
     private javax.swing.JButton bButton;
-    private javax.swing.JLabel buttonTestLabel;
     private javax.swing.JButton cButton;
     private javax.swing.JButton creditsBackButton;
     private javax.swing.JButton creditsButton;
@@ -976,6 +1141,7 @@ public class SemesterProject extends javax.swing.JFrame {
     private javax.swing.JButton dButton;
     private javax.swing.JButton eButton;
     private javax.swing.JButton fButton;
+    private javax.swing.JLabel finalScoreLabel;
     private javax.swing.JButton gButton;
     private javax.swing.JButton gameBackButton;
     private javax.swing.JButton gameButton;
@@ -984,6 +1150,7 @@ public class SemesterProject extends javax.swing.JFrame {
     private javax.swing.JLabel gameOverLabel;
     private javax.swing.JPanel gameOverPanel;
     private javax.swing.JPanel gamePanel;
+    private javax.swing.JLabel gameScoreLabel;
     private javax.swing.JButton gameSkipButton;
     private javax.swing.JLabel groupLabel;
     private javax.swing.JButton hButton;
@@ -991,11 +1158,20 @@ public class SemesterProject extends javax.swing.JFrame {
     private javax.swing.JButton jButton;
     private javax.swing.JButton kButton;
     private javax.swing.JButton lButton;
+    private javax.swing.JLabel letter1Label;
+    private javax.swing.JLabel letter2Label;
+    private javax.swing.JLabel letter3Label;
+    private javax.swing.JLabel letter4Label;
+    private javax.swing.JLabel letter5Label;
+    private javax.swing.JLabel letter6Label;
+    private javax.swing.JLabel letter7Label;
+    private javax.swing.JLabel letter8Label;
     private javax.swing.JButton mButton;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton nButton;
+    private javax.swing.JLabel niceLabel;
     private javax.swing.JButton oButton;
     private javax.swing.JButton pButton;
     private javax.swing.JLabel projectLabel;
@@ -1008,10 +1184,10 @@ public class SemesterProject extends javax.swing.JFrame {
     private javax.swing.JPanel scorePanel;
     private javax.swing.JPanel startPanel;
     private javax.swing.JButton tButton;
+    private javax.swing.JLabel tryAgainLabel;
     private javax.swing.JButton uButton;
     private javax.swing.JButton vButton;
     private javax.swing.JButton wButton;
-    private javax.swing.JLabel wordTestLabel;
     private javax.swing.JButton xButton;
     private javax.swing.JButton yButton;
     private javax.swing.JButton zButton;
