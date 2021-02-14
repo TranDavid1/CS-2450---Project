@@ -30,10 +30,7 @@ public class SemesterProject extends javax.swing.JFrame {
         showTime();
         ActionListener actionListener = new ActionListener() {
             public void actionPerformed (ActionEvent event) {
-                mainPanel.removeAll();
-                mainPanel.add(menuPanel);
-                mainPanel.repaint();
-                mainPanel.revalidate();
+                returnMenu();
             }
         };
         Timer timer = new Timer(100, actionListener);
@@ -77,6 +74,7 @@ public class SemesterProject extends javax.swing.JFrame {
         gameButton = new javax.swing.JButton();
         scoreButton = new javax.swing.JButton();
         creditsButton = new javax.swing.JButton();
+        moonLabel = new javax.swing.JLabel();
         gamePanel = new javax.swing.JPanel();
         gameLabel = new javax.swing.JLabel();
         gameBackButton = new javax.swing.JButton();
@@ -189,6 +187,7 @@ public class SemesterProject extends javax.swing.JFrame {
         menuPanel.setPreferredSize(new java.awt.Dimension(600, 400));
 
         menuLabel.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 36)); // NOI18N
+        menuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuLabel.setText("Menu");
 
         gameButton.setText("Play");
@@ -217,31 +216,39 @@ public class SemesterProject extends javax.swing.JFrame {
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(menuLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
-                        .addComponent(gameButton)
-                        .addGap(69, 69, 69))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(menuLabel))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(moonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
                         .addComponent(scoreButton)
                         .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
                         .addComponent(creditsButton)
-                        .addGap(62, 62, 62))))
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
+                        .addComponent(gameButton)
+                        .addGap(69, 69, 69))))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(menuLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(gameButton)
-                .addGap(18, 18, 18)
-                .addComponent(scoreButton)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(menuLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gameButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(scoreButton))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addContainerGap(118, Short.MAX_VALUE)
+                        .addComponent(moonLabel)))
                 .addGap(18, 18, 18)
                 .addComponent(creditsButton)
                 .addGap(41, 41, 41))
@@ -752,7 +759,7 @@ public class SemesterProject extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         scorePanelLayout.setVerticalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,7 +776,7 @@ public class SemesterProject extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(scoreBackButton)
                 .addGap(33, 33, 33))
         );
@@ -814,7 +821,7 @@ public class SemesterProject extends javax.swing.JFrame {
                 .addComponent(creditsBackButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, creditsPanelLayout.createSequentialGroup()
-                .addGap(0, 209, Short.MAX_VALUE)
+                .addGap(0, 217, Short.MAX_VALUE)
                 .addGroup(creditsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -870,7 +877,7 @@ public class SemesterProject extends javax.swing.JFrame {
                     .addGroup(gameOverPanelLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(gameOverEndButton)))
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameOverPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(finalScoreLabel)
@@ -906,7 +913,6 @@ public class SemesterProject extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gameButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameButtonMousePressed
-        // TODO add your handling code here:
         mainPanel.removeAll();
         mainPanel.add(gamePanel);
         mainPanel.repaint();
@@ -968,7 +974,6 @@ public class SemesterProject extends javax.swing.JFrame {
     }//GEN-LAST:event_gameButtonMousePressed
 
     private void scoreButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scoreButtonMousePressed
-        // TODO add your handling code here:
         mainPanel.removeAll();
         mainPanel.add(scorePanel);
         mainPanel.repaint();
@@ -976,7 +981,6 @@ public class SemesterProject extends javax.swing.JFrame {
     }//GEN-LAST:event_scoreButtonMousePressed
 
     private void creditsButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMousePressed
-        // TODO add your handling code here:
         mainPanel.removeAll();
         mainPanel.add(creditsPanel);
         mainPanel.repaint();
@@ -984,158 +988,127 @@ public class SemesterProject extends javax.swing.JFrame {
     }//GEN-LAST:event_creditsButtonMousePressed
 
     private void gameBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameBackButtonMouseClicked
-        // TODO add your handling code here:
         returnMenu();
     }//GEN-LAST:event_gameBackButtonMouseClicked
 
     private void scoreBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scoreBackButtonMouseClicked
-        // TODO add your handling code here:
         returnMenu();
     }//GEN-LAST:event_scoreBackButtonMouseClicked
 
     private void creditsBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBackButtonMouseClicked
-        // TODO add your handling code here:
         returnMenu();
     }//GEN-LAST:event_creditsBackButtonMouseClicked
 
     private void gameOverEndButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameOverEndButtonMousePressed
-        // TODO add your handling code here:
         returnMenu();
     }//GEN-LAST:event_gameOverEndButtonMousePressed
 
     private void gameSkipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gameSkipButtonMouseClicked
-        // TODO add your handling code here:
         score = 0;
         gameOverDisplay();
     }//GEN-LAST:event_gameSkipButtonMouseClicked
 
     private void aButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(aButton);
     }//GEN-LAST:event_aButtonMouseClicked
 
     private void bButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(bButton);
     }//GEN-LAST:event_bButtonMouseClicked
 
     private void cButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(cButton);
     }//GEN-LAST:event_cButtonMouseClicked
 
     private void dButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(dButton);
     }//GEN-LAST:event_dButtonMouseClicked
 
     private void eButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(eButton);
     }//GEN-LAST:event_eButtonMouseClicked
 
     private void fButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(fButton);
     }//GEN-LAST:event_fButtonMouseClicked
 
     private void gButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(gButton);
     }//GEN-LAST:event_gButtonMouseClicked
 
     private void hButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(hButton);
     }//GEN-LAST:event_hButtonMouseClicked
 
     private void iButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(iButton);
     }//GEN-LAST:event_iButtonMouseClicked
 
     private void jButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(jButton);
     }//GEN-LAST:event_jButtonMouseClicked
 
     private void kButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(kButton);
     }//GEN-LAST:event_kButtonMouseClicked
 
     private void lButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(lButton);
     }//GEN-LAST:event_lButtonMouseClicked
 
     private void mButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(mButton);
     }//GEN-LAST:event_mButtonMouseClicked
 
     private void nButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(nButton);
     }//GEN-LAST:event_nButtonMouseClicked
 
     private void oButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(oButton);
     }//GEN-LAST:event_oButtonMouseClicked
 
     private void pButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(pButton);
     }//GEN-LAST:event_pButtonMouseClicked
 
     private void qButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_qButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(qButton);
     }//GEN-LAST:event_qButtonMouseClicked
 
     private void rButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(rButton);
     }//GEN-LAST:event_rButtonMouseClicked
 
     private void sButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(sButton);
     }//GEN-LAST:event_sButtonMouseClicked
 
     private void tButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(tButton);
     }//GEN-LAST:event_tButtonMouseClicked
 
     private void uButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(uButton);
     }//GEN-LAST:event_uButtonMouseClicked
 
     private void vButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(vButton);
     }//GEN-LAST:event_vButtonMouseClicked
 
     private void wButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(wButton);
     }//GEN-LAST:event_wButtonMouseClicked
 
     private void xButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(xButton);
     }//GEN-LAST:event_xButtonMouseClicked
 
     private void yButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(yButton);
     }//GEN-LAST:event_yButtonMouseClicked
 
     private void zButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zButtonMouseClicked
-        // TODO add your handling code here:
         letterSelected(zButton);
     }//GEN-LAST:event_zButtonMouseClicked
 
@@ -1150,7 +1123,7 @@ public class SemesterProject extends javax.swing.JFrame {
                     letterFound = true;
                 }
             }
-        if (!letterFound) {
+        if (!letterFound && button.isEnabled()) {
             score -= 10;
             gameScoreLabel.setText("Score: " + score);
             tryAgainLabel.setVisible(true);
@@ -1196,6 +1169,7 @@ public class SemesterProject extends javax.swing.JFrame {
     private void returnMenu() {
         mainPanel.removeAll();
         mainPanel.add(menuPanel);
+        moonLabel.setIcon(new ImageIcon(getClass().getResource("moon.png")));
         mainPanel.repaint();
         mainPanel.revalidate();
     }
@@ -1292,6 +1266,7 @@ public class SemesterProject extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JLabel moonLabel;
     private javax.swing.JButton nButton;
     private javax.swing.JLabel niceLabel;
     private javax.swing.JButton oButton;
