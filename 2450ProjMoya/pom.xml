@@ -10,5 +10,5 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
-    <name>2450ProjMoya</name>
+    <name>2450ProjMoyaVer2</name>
 </project>
