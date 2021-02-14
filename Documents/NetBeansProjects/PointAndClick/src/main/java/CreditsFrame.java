@@ -42,16 +42,16 @@ public class CreditsFrame extends javax.swing.JFrame {
         jLabel1.setText("CREDITS");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Ishan Dhaliwal, 01330497");
+        jLabel2.setText("Brandon Moya, 014186939");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Justin Ho,  014574794");
+        jLabel3.setText("Justin Ho, 014574794");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Brandon Moya, 014186939");
+        jLabel4.setText("Justin Ho, 014574794");
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("David Tran, 011813529");
+        jLabel5.setText("Justin Ho, 014574794");
 
         jButton1.setText("BACK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
