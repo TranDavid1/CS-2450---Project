@@ -13,3 +13,7 @@ Example of execution of the program:
 ![Image3](https://i.gyazo.com/f495c05147ee7acdf7dc25b3f7edc2c5.png)
 
 ![Image3](https://i.gyazo.com/b078a9a6a3540cf401b9779f40e75679.png)
+
+![Image4](https://i.gyazo.com/c871980803d59ef6204e605b516f4087.png)
+
+![Image5](https://i.gyazo.com/b50486512bd91d6e67acd367cacd768f.png)
